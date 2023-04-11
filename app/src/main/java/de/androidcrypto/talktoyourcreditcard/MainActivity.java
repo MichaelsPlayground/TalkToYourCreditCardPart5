@@ -262,6 +262,39 @@ public class MainActivity extends AppCompatActivity implements NfcAdapter.Reader
                                 printStepHeader(5, "get the processing options");
                                 writeToUiAppend("05 get the processing options  command length: " + gpoRequestCommand.length + " data: " + bytesToHexNpe(gpoRequestCommand));
 
+                                /**
+                                 * step 5 code starts
+                                 */
+
+                                /**
+                                 * WARNING: each get processing options request increases the icc internal
+                                 * 'application transaction counter'. If the 2 byte long counter reaches the
+                                 * maximum of '65535' (0xFFFF) the card will no longer accept any read commands
+                                 * and the card is irretrievable damaged.
+                                 * DO NOT RUN THIS COMMAND IN A LOOP !
+                                 */
+
+                                byte[] gpoRequestResponse = nfc.transceive(gpoRequestCommand);
+                                byte[] gpoRequestResponseOk;
+                                writeToUiAppend(etData, "05 get the processing options completed");
+                                if (gpoRequestResponse != null) {
+                                    writeToUiAppend("05 get the processing options response length: " + gpoRequestResponse.length + " data: " + bytesToHexNpe(gpoRequestResponse));
+                                    gpoRequestResponseOk = checkResponse(gpoRequestResponse);
+                                    if (gpoRequestResponseOk != null) {
+                                        writeToUiAppend(prettyPrintDataToString(gpoRequestResponse));
+                                    }
+
+                                } else {
+                                    writeToUiAppend(etData, "05 get the processing options failed");
+                                    writeToUiAppend("The command for get processing options failed. It might be a good idea to use an alternate tag 0x9966 Terminal Transaction Qualifiers");
+                                    startEndSequence(nfc);
+                                    // the app will end here
+                                }
+
+                                /**
+                                 * step 5 code end
+                                 */
+
                             } else { // if (selectAidResponseOk != null) {
                                 writeToUiAppend("the selecting AID command failed");
                             }

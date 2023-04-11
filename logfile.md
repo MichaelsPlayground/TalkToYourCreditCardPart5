@@ -130,6 +130,15 @@ Tag  Tag Name                        Length Value
 * get the processing options    *
 *********************************
 05 get the processing options  command length: 8 data: 80a8000002830000
+05 get the processing options response length: 22 data: 771282021980940c0801010010010101200102009000
+------------------------------------
+77 12 -- Response Message Template Format 2
+      82 02 -- Application Interchange Profile
+            19 80 (BINARY)
+      94 0C -- Application File Locator (AFL)
+            08 01 01 00 10 01 01 01 20 01 02 00 (BINARY)
+90 00 -- Command successfully executed (OK)
+------------------------------------
 
 *********************************
 ************ step 99 ************
@@ -289,10 +298,41 @@ Tag  Tag Name                        Length Value
 * get the processing options    *
 *********************************
 05 get the processing options  command length: 41 data: 80a8000023832127000000000000001000000000000000097800000000000978230301003839303100
+05 get the processing options response length: 203 data: 7781c68202202094041001030057134871780082770574d25072211328662101000f9f100706011203a000009f2608c428942a8511a9879f2701809f360200e59f6c0204009f4b818031919d3560b1329ad30a5778a6ef207e90ee785a461a30d411b577e16dfca10516302b29cf85b3754a7cc25b8decc126cac7475dca96482fbc774161dcf0deb25a9603e2e2e333a341fd2fb02f495f485682d11baa4361d4b989f9970f374c7ac351aba5402ca202d8c105777204e60ff3c71d89171c1ceb49a2fd884a2f260c9000
+------------------------------------
+77 81 C6 -- Response Message Template Format 2
+         82 02 -- Application Interchange Profile
+               20 20 (BINARY)
+         94 04 -- Application File Locator (AFL)
+               10 01 03 00 (BINARY)
+         57 13 -- Track 2 Equivalent Data
+               48 71 78 00 82 77 05 74 D2 50 72 21 13 28 66 21
+               01 00 0F (BINARY)
+         9F 10 07 -- Issuer Application Data
+                  06 01 12 03 A0 00 00 (BINARY)
+         9F 26 08 -- Application Cryptogram
+                  C4 28 94 2A 85 11 A9 87 (BINARY)
+         9F 27 01 -- Cryptogram Information Data
+                  80 (BINARY)
+         9F 36 02 -- Application Transaction Counter (ATC)
+                  00 E5 (BINARY)
+         9F 6C 02 -- Mag Stripe Application Version Number (Card)
+                  04 00 (BINARY)
+         9F 4B 81 80 -- Signed Dynamic Application Data
+                     31 91 9D 35 60 B1 32 9A D3 0A 57 78 A6 EF 20 7E
+                     90 EE 78 5A 46 1A 30 D4 11 B5 77 E1 6D FC A1 05
+                     16 30 2B 29 CF 85 B3 75 4A 7C C2 5B 8D EC C1 26
+                     CA C7 47 5D CA 96 48 2F BC 77 41 61 DC F0 DE B2
+                     5A 96 03 E2 E2 E3 33 A3 41 FD 2F B0 2F 49 5F 48
+                     56 82 D1 1B AA 43 61 D4 B9 89 F9 97 0F 37 4C 7A
+                     C3 51 AB A5 40 2C A2 02 D8 C1 05 77 72 04 E6 0F
+                     F3 C7 1D 89 17 1C 1C EB 49 A2 FD 88 4A 2F 26 0C (BINARY)
+90 00 -- Command successfully executed (OK)
+------------------------------------
+
 
 *********************************
 ************ step 99 ************
 * our journey ends              *
 *********************************
-
 ```
