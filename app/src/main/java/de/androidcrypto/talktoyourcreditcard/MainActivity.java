@@ -34,18 +34,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.github.devnied.emvnfccard.enums.CommandEnum;
-import com.github.devnied.emvnfccard.exception.CommunicationException;
-import com.github.devnied.emvnfccard.iso7816emv.EmvTags;
-import com.github.devnied.emvnfccard.iso7816emv.impl.DefaultTerminalImpl;
-import com.github.devnied.emvnfccard.utils.CommandApdu;
 import com.github.devnied.emvnfccard.utils.TlvUtil;
 import com.payneteasy.tlv.BerTag;
 import com.payneteasy.tlv.BerTlv;
 import com.payneteasy.tlv.BerTlvParser;
 import com.payneteasy.tlv.BerTlvs;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.math.BigInteger;
